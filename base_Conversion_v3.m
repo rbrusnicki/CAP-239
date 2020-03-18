@@ -1,4 +1,4 @@
-%% Converte um numero inteiro escrito em uma base qualquer para outra base qualquer de forma direta ( sem ser por força bruta )
+%% Converte um numero inteiro positivo entre bases quaisquer, de forma direta ( sem ser por força bruta )
 % INPUTS:
 % num_In  : vetor que contem os algarismos do numero a ser convertido, escrito na base 10
 % base_In : base utilizada para representar o input, escrita na base 10
@@ -78,42 +78,5 @@ function [num] = somaX(num1, num2, baseX)
                num = [quociente, num];
            end
        end
-    end
-end
-
-%% Converte um numero inteiro escrito em uma base qualquer para outra base qualquer de forma direta por força bruta
-function [num_Out] = baseConversion_v2(num_In, base_In, base_Out)
-    num_Out = 0;
-   
-    while( sum(num_In) ~= 0 )
-        num_Out = mais_1_na_baseX(num_Out, base_Out);
-        num_In = menos_1_na_baseX(num_In, base_In);
-    end
-
-end
-
-%% Soma 1 em uma base qualquer
-function [num] = mais_1_na_baseX(num, baseX)
-    L = length(num);
-    if num(L) ~= baseX-1
-        num(L) = num(L)+1;
-    else
-        if( L > 1 )
-            num = [mais_1_na_baseX(num(1:L-1), baseX), 0];
-        else
-            num = [1 0];
-        end
-    end
-end
-
-%% Subtrai 1 em uma base qualquer
-function [num] = menos_1_na_baseX(num, baseX)
-    L = length(num);
-    if num(L) ~= 0
-        num(L) = num(L)-1;
-    else
-        if( L > 1 )
-            num = [menos_1_na_baseX(num(1:L-1), baseX), baseX-1];
-        end
     end
 end
