@@ -11,6 +11,7 @@ void Conversion::print_menu(){
     cout << "   5 - Imprimir conversão;\n";
     cout << "   6 - Sair;\n"; 
     cout << "Opção: ";
+    
     cin >> aux;
     
     switch (aux)
